@@ -17,10 +17,22 @@ public class StringBuilder_Test {
         System.out.println(ss);
         System.out.println(ss.equals(insert) ? "测试成功" : "测试失败");
 
+        //StringJoin
+        String[] names = {"Bob", "Alice", "Grace"};
+        var sj =  new StringJoiner(", ");
+        for(String name:names){
+            sj.add(name);
+        }
+        System.out.println(sj.toString());
+        //String.join
+        String res = String.join(", ",names);
+        System.out.println(res);
+
     }
 
     static String buildInsertSql(String table, String[] fields) {
         // TODO:
+
         StringBuilder s = new StringBuilder(1024);
         s.append("INSERT INTO ")
                 .append(table)
@@ -36,6 +48,7 @@ public class StringBuilder_Test {
         s.append(") ")
                 .append("VALUES ")
                 .append("(?, ?, ?)");
+
 
         return s.toString();
     }
